@@ -1,9 +1,5 @@
 # ITLabStore ([PWA](https://developers.google.com/web/progressive-web-apps/))
 
-## Enviroments
-* Nginx
-* Django + uWSGI
-
 ## Usage
 ### First time
 ```
