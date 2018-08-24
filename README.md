@@ -7,11 +7,13 @@
 ## Usage
 ### First time
 ```
+## Check all files containing "example.com"
+
 ## docker-compose.yml
 - ./conf/nginx_init.conf:/etc/nginx/nginx.conf:ro
 # - ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
 
-## run
+## Run
 docker-compose up -d noip web nginx
 docker-compose up letsencrypt
 ```
@@ -21,7 +23,7 @@ docker-compose up letsencrypt
 # - ./conf/nginx_init.conf:/etc/nginx/nginx.conf:ro
 - ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
 
-## run
+## Run
 docker-compose down
 docker-compose up -d
 ```
