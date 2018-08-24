@@ -1,0 +1,25 @@
+{% load pwa %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <link rel="stylesheet" href="{% static 'store/bootstrap.3.3.7.min.css' %}">
+        <script src="{% static 'store/jquery.3.2.1.min.js' %}"></script>
+        <script src="{% static 'store/bootstrap.3.3.7.min.js' %}"></script>
+
+        <title>ITLab Store</title>
+        <link rel="shortcut icon" href="{% static 'store/icon.png' %}"/>
+
+        {% progressive_web_app_meta %}
+        {% block head %}{% endblock %}
+    </head>
+
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+</html>

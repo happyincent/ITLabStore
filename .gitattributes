@@ -1,0 +1,4 @@
+*.py filter=ignoreline
+*.sh filter=ignoreline
+*.conf filter=ignoreline
+*.yml filter=ignoreline
