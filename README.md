@@ -7,21 +7,21 @@
 ## Usage
 ### First time
 ```
-# docker-compose.yml
-51 - ./conf/nginx_init.conf:/etc/nginx/nginx.conf:ro
-52 # - ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
+## docker-compose.yml
+- ./conf/nginx_init.conf:/etc/nginx/nginx.conf:ro
+# - ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
 
-# run
+## run
 docker-compose up -d noip web nginx
 docker-compose up letsencrypt
 ```
 ### Then
 ```
-# docker-compose.yml
-51 # - ./conf/nginx_init.conf:/etc/nginx/nginx.conf:ro
-52 - ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
+## docker-compose.yml
+# - ./conf/nginx_init.conf:/etc/nginx/nginx.conf:ro
+- ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
 
-# run
+## run
 docker-compose down
 docker-compose up -d
 ```
