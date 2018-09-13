@@ -8,12 +8,10 @@ RUN apk update && \
 
 ### Copy files
 COPY updateDB.sh /etc/periodic/15min/updateDB
-COPY clearLog.sh /etc/periodic/daily/clearLog
 COPY run.sh /run.sh
 RUN chmod +x \
         /run.sh \
-        /etc/periodic/15min/updateDB \
-        /etc/periodic/daily/clearLog
+        /etc/periodic/15min/updateDB 
 
 ### Django
 ENV PYTHONUNBUFFERED 1

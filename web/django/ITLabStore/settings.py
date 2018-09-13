@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'store.apps.StoreConfig',
     'pwa',
+    'django_cron',
+]
+
+CRON_CLASSES = [
+    "store.cron.CronJob_updateDB",
 ]
 
 MIDDLEWARE = [

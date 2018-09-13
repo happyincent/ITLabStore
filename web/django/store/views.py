@@ -27,11 +27,18 @@ def home(request):
         'log': UpdateLog.objects.latest('date').date.strftime('%Y-%m-%d %H:%M:%S') if UpdateLog.objects.count() > 0 else ''
     })
 
-# Update Database
 def update(request):
     # flag = 'flag{xxx}'
     if request.GET.get('flag', default='') != flag:
         return redirect('home')
+
+    if updateDB():
+        return HttpResponse('UPDATE SUCCESS ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S') )
+    else:
+        raise HttpResponse('UPDATE FAIL ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+
+# Update Database
+def updateDB():
     try:
         PriceList.objects.all().delete()
         UpdateLog.objects.all().delete()
@@ -40,13 +47,13 @@ def update(request):
             writeDB( getTSV(URLs[key]), key)
         
         UpdateLog.objects.create(status='SUCCESS')
-        return HttpResponse('UPDATE SUCCESS ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S') )
+        return True
     except:
         try:
             UpdateLog.objects.create(status='FAIL')
         except:
             pass
-        raise HttpResponse('UPDATE FAIL ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+        return False
 
 def getTSV(URL):
     req = requests.get(URL)
