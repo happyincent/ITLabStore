@@ -61,12 +61,9 @@ def getTSV(URL):
     return io.StringIO(req.text)
 
 def writeDB(input, key):
-    try:
-        for row in csv.DictReader(input, delimiter='\t'):
-            PriceList.objects.create(
-                species = key,
-                item = row[KEY_ITEM],
-                price = int(row[KEY_PRICE])
-            )
-    except:
-        raise HttpResponse('UPDATE FAIL ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    for row in csv.DictReader(input, delimiter='\t'):
+        PriceList.objects.create(
+            species = key,
+            item = row[KEY_ITEM],
+            price = int(row[KEY_PRICE])
+        )
