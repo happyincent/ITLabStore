@@ -30,13 +30,13 @@ services:
       - nginx
 
   web:
-    container_name: itlabstore-store
+    container_name: web-store
     build: ./web
-    image: itlabstore
+    image: web:itlabstore
     restart: always
     command: sh -c "/run.sh"
     volumes:
-      - './web/django:/www'
+      - './web/app:/www'
       - './web/run.sh:/run.sh'
   
   nginx:
@@ -51,6 +51,6 @@ services:
       - ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
       - /etc/letsencrypt:/etc/letsencrypt
       - ./conf/data/letsencrypt-www:/tmp/letsencrypt
-      - './web/django:/www'
+      - './web/app:/www'
     depends_on:
       - web

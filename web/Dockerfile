@@ -15,8 +15,10 @@ RUN chmod +x \
 
 ### Django
 ENV PYTHONUNBUFFERED 1
+
+RUN mkdir -p mkdir /www
+COPY ./app/requirements.txt /www/requirements.txt
 WORKDIR /www
-COPY ./django /www/
 RUN apk add --no-cache \
         python3-dev build-base linux-headers pcre-dev \
         && \
