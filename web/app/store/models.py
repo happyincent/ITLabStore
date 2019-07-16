@@ -8,10 +8,3 @@ class PriceList(models.Model):
 
     def __str__(self):
         return self.item
-
-class UpdateLog(models.Model):
-    status = models.CharField(max_length=128, default='')
-    date = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.status

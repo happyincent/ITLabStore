@@ -22,4 +22,6 @@ python manage.py collectstatic --noinput
 cat /crontab > /var/spool/cron/crontabs/root
 crond
 
+# Run
 gunicorn -b 0.0.0.0:8000 --workers 4 --chdir /www ITLabStore.wsgi:application
+# tail -f /dev/null

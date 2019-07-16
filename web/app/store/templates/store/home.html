@@ -88,7 +88,7 @@
 </div>
 
 <nav class="navbar navbar-default navbar-static-bottom container">
-    <div class="row text-center"><small>Last Updated: {{ log }}</small></div>
+    <div class="row text-center"><small>Last Updated: {{ log | date:"Y-m-d H:i:s" }}</small></div>
     <div class="row text-center copyright"><small>© 2017 DDL</small></div>
 </nav>
 {% endblock %}
