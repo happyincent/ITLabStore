@@ -1,0 +1,17 @@
+django-cron==0.5.1
+  - Django [required: >=1.8.0, installed: 1.11.22]
+    - pytz [required: Any, installed: 2019.1]
+  - django-common-helpers [required: >=0.6.4, installed: 0.9.2]
+    - Django [required: >=1.8.0, installed: 1.11.22]
+      - pytz [required: Any, installed: 2019.1]
+django-progressive-web-app==0.1.1
+gunicorn==19.9.0
+pipdeptree==0.13.2
+  - pip [required: >=6.0.0, installed: 19.1.1]
+requests==2.22.0
+  - certifi [required: >=2017.4.17, installed: 2019.6.16]
+  - chardet [required: >=3.0.2,<3.1.0, installed: 3.0.4]
+  - idna [required: >=2.5,<2.9, installed: 2.8]
+  - urllib3 [required: >=1.21.1,<1.26,!=1.25.1,!=1.25.0, installed: 1.25.3]
+setuptools==41.0.1
+wheel==0.33.4

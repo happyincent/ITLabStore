@@ -2,29 +2,28 @@ FROM python:3-alpine
 MAINTAINER ddl <itlab.ee.ncku.edu.tw>
 
 # Environment
-ENV TZ=Asia/Taipei
-RUN apk update && \
-    apk add --no-cache nano curl
-
-### Copy files
-COPY updateDB.sh /etc/periodic/15min/updateDB
-COPY run.sh /run.sh
-RUN chmod +x \
-        /run.sh \
-        /etc/periodic/15min/updateDB 
-
-### Django
 ENV PYTHONUNBUFFERED 1
+ARG TZ=Asia/Taipei
 
 RUN mkdir -p mkdir /www
-COPY ./app/requirements.txt /www/requirements.txt
 WORKDIR /www
-RUN apk add --no-cache \
-        python3-dev build-base linux-headers pcre-dev \
-        && \
-    pip install -r requirements.txt
 
-### Timezone
-RUN apk add --no-cache tzdata && \
+### Django
+COPY ./app/requirements.txt /www/requirements.txt
+
+RUN set -e; \
+    apk update \
+    && apk add --virtual .build-deps build-base python3-dev linux-headers \
+    && pip install --no-cache-dir -U pip \
+    && pip install --no-cache-dir -r /www/requirements.txt \
+    && apk del .build-deps
+
+# Setup timezone
+RUN apk add --update --no-cache tzdata && \
     cp /usr/share/zoneinfo/$TZ /etc/localtime && \
-    echo $TZ > /etc/timezone
+    echo $TZ > /etc/timezone && \
+    date && \
+    apk del tzdata
+
+# Cleanup
+RUN rm -rf /var/cache/* /tmp/*

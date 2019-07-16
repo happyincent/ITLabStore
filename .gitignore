@@ -2,4 +2,5 @@
 *.pyc
 *.sock
 **/app/static/
-**/conf/data/
+**/conf/tmp/
+**/conf/letsencrypt/

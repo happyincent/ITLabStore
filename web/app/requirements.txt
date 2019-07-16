@@ -1,5 +1,17 @@
-Django>1.11.*,<2
-django-progressive-web-app==0.1.1
-django-cron==0.5.1
+Django==1.11.*
+django-progressive-web-app
+django-cron
+
 requests
-uwsgi
+gunicorn
+
+pipdeptree
+
+# ------------------------------------------------------
+
+## Django==1.11.22
+## django-cron==0.5.1
+## django-progressive-web-app==0.1.1
+## gunicorn==19.9.0
+## pipdeptree==0.13.2
+## requests==2.22.0

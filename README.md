@@ -1,26 +1,27 @@
 # ITLabStore ([PWA](https://developers.google.com/web/progressive-web-apps/))
 
 ## Usage
-### First time
+### (First time)
 ```
 ## Check all files containing "example.com"
 
-## docker-compose.yml
+## Edit docker-compose.yml
 - ./conf/nginx_init.conf:/etc/nginx/nginx.conf:ro
 # - ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
 
 ## Run
 docker-compose up -d noip web nginx
-docker-compose up letsencrypt
-```
-### Then
-```
-## docker-compose.yml
+docker-compose up certbot
+
+## Edit docker-compose.yml
 # - ./conf/nginx_init.conf:/etc/nginx/nginx.conf:ro
 - ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
+```
 
-## Run
-docker-compose down
+### Run
+```
+# docker-compose down
+# docker-compose pull
 docker-compose up -d
 ```
 
@@ -33,4 +34,3 @@ docker-compose up -d
 * DNS (No-IP)
     * https://github.com/coppit/docker-no-ip
 * HTTPS (Let’s Encrypt)
-    * https://github.com/kvaps/docker-letsencrypt-webroot

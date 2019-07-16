@@ -62,6 +62,9 @@ def getTSV(URL):
 
 def writeDB(input, key):
     for row in csv.DictReader(input, delimiter='\t'):
+        if row[KEY_ITEM] == '' or row[KEY_PRICE] == '':
+            continue
+        
         PriceList.objects.create(
             species = key,
             item = row[KEY_ITEM],
