@@ -32,13 +32,10 @@ class UpdatePrice(CronJobBase):
             )
 
     def do(self):
-        old = list(PriceList.objects.all().values('id'))
+        PriceList.objects.all().delete()
         
         for k in STORE_URLS.keys():
             self._writeDB(self._getTSV(STORE_URLS[k]), k)
-        
-        for i in old:
-            PriceList.objects.filter(id=i['id']).delete()
 
         print('SUCCESS')
         return 'SUCCESS'
