@@ -23,5 +23,12 @@ cat /crontab > /var/spool/cron/crontabs/root
 crond
 
 # Run
-gunicorn -b 0.0.0.0:8000 --workers 4 --chdir /www ITLabStore.wsgi:application
 # tail -f /dev/null
+
+gunicorn -b 0.0.0.0:8000 --workers 1 --chdir /www ITLabStore.wsgi:application
+
+# gunicorn --keyfile /keys/live/example.com/privkey.pem \
+#          --certfile /keys/live/example.com/cert.pem \
+#          --workers 1 \
+#          -b 0.0.0.0:8000 \
+#          --chdir /www ITLabStore.wsgi:application

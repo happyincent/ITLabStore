@@ -1,18 +1,18 @@
 django-cron==0.5.1
-  - Django [required: >=1.8.0, installed: 2.2.3]
-    - pytz [required: Any, installed: 2019.1]
+  - Django [required: >=1.8.0, installed: 2.2.4]
+    - pytz [required: Any, installed: 2019.2]
     - sqlparse [required: Any, installed: 0.3.0]
   - django-common-helpers [required: >=0.6.4, installed: 0.9.2]
-    - Django [required: >=1.8.0, installed: 2.2.3]
-      - pytz [required: Any, installed: 2019.1]
+    - Django [required: >=1.8.0, installed: 2.2.4]
+      - pytz [required: Any, installed: 2019.2]
       - sqlparse [required: Any, installed: 0.3.0]
 django-pwa==1.0.5
-  - django [required: >=1.8, installed: 2.2.3]
-    - pytz [required: Any, installed: 2019.1]
+  - django [required: >=1.8, installed: 2.2.4]
+    - pytz [required: Any, installed: 2019.2]
     - sqlparse [required: Any, installed: 0.3.0]
 gunicorn==19.9.0
 pipdeptree==0.13.2
-  - pip [required: >=6.0.0, installed: 19.1.1]
+  - pip [required: >=6.0.0, installed: 19.2.1]
 requests==2.22.0
   - certifi [required: >=2017.4.17, installed: 2019.6.16]
   - chardet [required: >=3.0.2,<3.1.0, installed: 3.0.4]
