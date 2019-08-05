@@ -13,5 +13,5 @@ class Home(TemplateView):
         context['drink'] = PriceList.objects.filter(species='drink').order_by('price')
         context['noodles'] = PriceList.objects.filter(species='noodles').order_by('price')
         context['other'] = PriceList.objects.filter(species='other').order_by('price')
-        context['log'] = CronJobLog.objects.last().end_time
+        context['log'] = None if not CronJobLog.objects.last() else CronJobLog.objects.last().end_time
         return context
